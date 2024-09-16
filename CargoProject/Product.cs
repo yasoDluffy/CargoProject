@@ -8,14 +8,15 @@ namespace CargoProject
 {
     public class Product
     {
-        public string Name { get; }
-        public string Model { get; }
-        public double Weight { get; }
-        public double Volume { get; }
-        public bool IsFragile { get; }
-        public double Price { get; }
+        public string Name { get; set; }
+        public string Model { get; set; }
+        public double Weight { get; set; }
+        public double Volume { get; set; }
+        public bool IsFragile { get; set; }
+        public double Price { get; set; }
+        public bool IsReadyForShipment { get; set; }  // Added this property for readiness
 
-        public Product(string name, string model, double weight, double volume, bool isFragile, double price)
+        public Product(string name, string model, double weight, double volume, bool isFragile, double price, bool isReady)
         {
             Name = name;
             Model = model;
@@ -23,16 +24,12 @@ namespace CargoProject
             Volume = volume;
             IsFragile = isFragile;
             Price = price;
+            IsReadyForShipment = isReady;  // Initialize readiness
         }
 
         public double CalculateShippingCost()
         {
-            double baseCost = Weight * 10 + Volume * 5;
-            if (IsFragile)
-            {
-                baseCost *= 1.5; // עלות נוספת לפריטים שבירים
-            }
-            return baseCost;
+            return Weight * Volume * 10;  // Simplified shipping cost calculation
         }
     }
 }

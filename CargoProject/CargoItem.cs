@@ -8,32 +8,36 @@ namespace CargoProject
 {
     public class CargoItem : IPortable
     {
+        public string Name { get; set; }
+        public double Weight { get; set; }
+        public double Volume { get; set; }
+        public bool IsFragile { get; set; }
+        public double Price { get; set; }
 
-        // Properties
-        public string Name { get; private set; }
-        public double Weight { get; private set; }
-        public double Volume { get; private set; }
-        public bool IsFragile { get; private set; }
-
-        // Constructor
-        public CargoItem(string name, double weight, double volume, bool isFragile = false)
+        public CargoItem(string name, double weight, double volume, bool isFragile, double price)
         {
             Name = name;
             Weight = weight;
             Volume = volume;
             IsFragile = isFragile;
+            Price = price;
         }
 
-        public double GetWeight() => Weight;
-        public double GetVolume() => Volume;
-        public bool IsFragileItem() => IsFragile;
-
-        public override string ToString()
+        // Implementing IPortable interface methods
+        public double GetWeight()
         {
-            return $"{Name} (Weight: {Weight} kg, Volume: {Volume} m³, Fragile: {IsFragile})";
+            return Weight;
         }
 
+        public double GetVolume()
+        {
+            return Volume;
+        }
 
+        public bool IsFragileItem()
+        {
+            return IsFragile;
+        }
     }
-}
 
+}
