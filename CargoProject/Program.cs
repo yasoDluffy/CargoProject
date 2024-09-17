@@ -11,7 +11,8 @@ namespace CargoProject
         public static void Main(string[] args)
         {
             CargoTests.RunMe();
-            CargoTransportConsole.MainMenu();
+            //CargoTransportConsole.InitializeItems();
+            //CargoTransportConsole.MainMenu();
         }
         
     }
