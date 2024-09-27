@@ -9,10 +9,9 @@ namespace CargoProject
     public interface IPortable
     {
 
-        string Name { get; }
-        double GetWeight();
-        double GetVolume();
-        bool IsFragileItem();
-
+        double GetWeight();   // Returns the weight of the item
+        double GetVolume();   // Returns the volume of the item
+        bool IsFragileItem(); // Indicates if the item is fragile
+    
     }
 }
